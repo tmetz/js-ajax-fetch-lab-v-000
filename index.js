@@ -14,8 +14,6 @@ function forkRepo() {
   //use fetch to fork it!
   fetch(url, {
       method: 'POST',
-      withCredentials: true,
-      credentials: 'include',
       headers: {
         Authorization: `token ${getToken()}`
       }
@@ -29,6 +27,20 @@ function showResults(json) {
 
 function createIssue() {
   //use this function to create an issue based on the values input in index.html
+  const repo = `${user}/js-ajax-fetch-lab`;
+  const url = `${baseURL}/repos/${repo}/issues`;
+  const postData = {
+    title: document.getElementById('title').value,
+    body: document.getElementById('body').value
+  };
+
+  fetch(url, {
+    method: 'POST',
+    body: JSON.stringify(postData),
+    headers: {
+      Authorization: `token ${getToken()}`
+    }
+  }).then(res => res.json()).then(json => getIssues());
 }
 
 function getIssues() {
