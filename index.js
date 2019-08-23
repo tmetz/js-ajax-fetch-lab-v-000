@@ -1,10 +1,10 @@
 const baseURL = 'https://api.github.com';
-const user = '';
+const user = 'tmetz';
 
 function getToken() {
   //change to your token to run in browser, but set
   //back to '' before committing so all tests pass
-  return '3edf208739a3469e2d91006ca12b86185f178929';
+  return '';
 }
 
 function forkRepo() {
