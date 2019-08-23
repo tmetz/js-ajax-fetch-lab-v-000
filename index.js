@@ -14,6 +14,7 @@ function forkRepo() {
   //use fetch to fork it!
   fetch(url, {
       method: 'POST',
+      withCredentials: true;
       headers: {
         Authorization: `token ${getToken()}`
       }
